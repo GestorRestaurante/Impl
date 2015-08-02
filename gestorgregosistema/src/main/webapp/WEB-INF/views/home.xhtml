@@ -1,0 +1,136 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="title"></ui:define>
+
+<ui:define name="notes">
+    <p>
+        Aqui você encontra o melhor kebab do mundo!
+        <span class="alt">src/main/webapp/WEB-INF/spring/appServlet/webflow.xml</span>.
+    </p>
+    <hr/>
+</ui:define>
+
+<ui:define name="content">
+    
+    <p:tabView activeIndex="${param.tab}">
+        <p:tab title="Pessoas">
+            <p:accordionPanel dynamic="true" cache="true">
+                <p:tab title="Godfather Part I">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <p:graphicImage name="demo/images/godfather/godfather1.jpg" />
+                        <h:outputText
+                            value="The story begins as Don Vito Corleone..." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Godfather Part II">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <p:graphicImage name="demo/images/godfather/godfather2.jpg" />
+                        <h:outputText value="Francis Ford Coppola's legendary..." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Godfather Part III">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <p:graphicImage name="demo/images/godfather/godfather3.jpg" />
+                        <h:outputText value="After a break of more than 15 years..." />
+                    </h:panelGrid>
+                </p:tab>
+            </p:accordionPanel>
+        </p:tab>
+
+        <p:tab title="Pedidos">
+            <h3>IFrame</h3>
+            <p:lightBox iframe="true" id="lighbox3">
+                <h:outputLink value="http://www.primefaces.org" title="PrimeFaces HomePage">
+                    <h:outputText value="PrimeFaces HomePage" />
+                </h:outputLink>
+            </p:lightBox>
+        </p:tab>
+
+        <p:tab title="Estoque"> 
+            <p:commandButton id="movieBtn" value="Fazer Pedido" type="button" />
+                <p:overlayPanel id="moviePanel" for="movieBtn" hideEffect="fade" dynamic="true" style="width:600px">
+                    <p:steps activeIndex="1" styleClass="custom" readonly="false">
+                        <p:menuitem value="Personal" url="#"/>
+                        <p:menuitem value="Seat Selection" url="#"/>
+                        <p:menuitem value="Payment" url="#"/>
+                        <p:menuitem value="Confirmation" url="#"/>
+                    </p:steps>
+                    <p:steps activeIndex="2" styleClass="custom" readonly="false">
+                        <p:menuitem value="Personal" url="#"/>
+                        <p:menuitem value="Seat Selection" url="#"/>
+                        <p:menuitem value="Payment" url="#"/>
+                        <p:menuitem value="Confirmation" url="#"/>
+                    </p:steps>
+                    <p:steps activeIndex="3" styleClass="custom" readonly="false">
+                        <p:menuitem value="Personal" url="#"/>
+                        <p:menuitem value="Seat Selection" url="#"/>
+                        <p:menuitem value="Payment" url="#"/>
+                        <p:menuitem value="Confirmation" url="#"/>
+                    </p:steps>
+                </p:overlayPanel>
+            </p:tab>
+        <p:tab title="Caixa">
+            <h5>Comments: </h5>
+            <ul>
+                <li>
+                    <h:outputLink value="spring-security-taglib?tab=3" >
+                        <h:outputText value="Spring Security Facelets Tag Library" />
+                    </h:outputLink><br/>
+                    <span class="alt">Demonstrates use of the Spring Security Facelets tag library.</span>
+                    <p class="notice">
+                        The above flow definition is protected with Spring Security.
+                        You'll be redirected to a login page the first time. 
+                    </p> 
+                </li>
+                <li>
+                    <h:outputLink value="file-upload?tab=3" >
+                        <h:outputText value="File Upload" />
+                    </h:outputLink><br/>
+                    <span class="alt">Uses the PrimeFaces fileUpload component to demonstrate uploading a file.</span> 
+                </li>
+            </ul>
+        </p:tab>
+
+        <p:tab title="Relatórios">
+            <p:accordionPanel dynamic="true" cache="true">
+                <p:tab title="Insumos">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <p:graphicImage name="demo/images/godfather/godfather1.jpg" />
+                        <h:outputText
+                            value="The story begins as Don Vito Corleone..." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Financeiro">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <p:graphicImage name="demo/images/godfather/godfather2.jpg" />
+                        <h:outputText value="Francis Ford Coppola's legendary..." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Vendas">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <p:graphicImage name="demo/images/godfather/godfather3.jpg" />
+                        <h:outputText value="After a break of more than 15 years..." />
+                    </h:panelGrid>
+                </p:tab>
+            </p:accordionPanel>
+        </p:tab>
+
+		<!-- 
+			popup with form validation
+			popup with multiple state transitions
+			breadcrumb
+			custom jsf component
+			jpa persistence
+			file upload
+		 -->
+		
+	</p:tabView>
+
+</ui:define>
+</ui:composition>
