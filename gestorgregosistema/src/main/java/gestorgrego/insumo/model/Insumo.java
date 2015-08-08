@@ -1,11 +1,11 @@
 package gestorgrego.insumo.model;
 
 import gestorgrego.pessoa.model.Pessoa;
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Insumo {
@@ -17,15 +17,31 @@ public class Insumo {
     @Column
     private String descricao;
     
-    @Column
+    @ManyToMany
     private Pessoa fornecedor;
     
-    @Column
-    private Date dataFabricacao;
+    @ManyToMany
+    private TipoInsumo tipoinsumo;
     
     @Column
-    private Date dataVencimento;
+    private Float estoque;
 
+    public Float getEstoque() {
+        return estoque;
+    }
+
+    public void setEstoque(Float estoque) {
+        this.estoque = estoque;
+    }
+
+    public TipoInsumo getTipoinsumo() {
+        return tipoinsumo;
+    }
+
+    public void setTipoinsumo(TipoInsumo tipoinsumo) {
+        this.tipoinsumo = tipoinsumo;
+    }
+    
     public Long getId() {
         return id;
     }
@@ -50,21 +66,6 @@ public class Insumo {
         this.fornecedor = fornecedor;
     }
 
-    public Date getDataFabricacao() {
-        return dataFabricacao;
-    }
-
-    public void setDataFabricacao(Date dataFabricacao) {
-        this.dataFabricacao = dataFabricacao;
-    }
-
-    public Date getDataVencimento() {
-        return dataVencimento;
-    }
-
-    public void setDataVencimento(Date dataVencimento) {
-        this.dataVencimento = dataVencimento;
-    }
     
     
     

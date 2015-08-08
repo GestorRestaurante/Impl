@@ -1,5 +1,6 @@
 package gestorgrego.pessoa.model;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,9 +8,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+/**
+ *
+ * @author Fernanda Tamy Ishii
+ */
 @Entity
 @Table(name = "ENDERECO")
-public class Endereco {
+public class Endereco implements Serializable{
     
     @Id
     @GeneratedValue
@@ -33,8 +38,24 @@ public class Endereco {
     @Column
     private String estado;
     
+    @Column
+    private String tipoendereco;
+    
     @ManyToMany
     private Pessoa pessoa;
+
+    public Endereco() {
+    }
+
+    public String getTipoendereco() {
+        return tipoendereco;
+    }
+
+    public void setTipoendereco(String tipoendereco) {
+        this.tipoendereco = tipoendereco;
+    }
+    
+    
 
     public String getBairro() {
         return bairro;

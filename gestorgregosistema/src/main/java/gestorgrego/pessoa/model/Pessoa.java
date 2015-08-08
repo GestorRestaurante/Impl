@@ -1,5 +1,6 @@
 package gestorgrego.pessoa.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "PESSOA")
-public class Pessoa {
+public class Pessoa implements Serializable{
     
     @Id
     @GeneratedValue
@@ -35,6 +36,17 @@ public class Pessoa {
     
     @Column
     private Date dataNascimento;
+    
+    @Column
+    private String password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
  
     public Long getId() {
         return id;

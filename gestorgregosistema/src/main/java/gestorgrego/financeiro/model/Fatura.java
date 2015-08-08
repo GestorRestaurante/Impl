@@ -25,7 +25,7 @@ public class Fatura {
     private Date dataEmissao;
     
     @Column
-    private int situacao;
+    private SituacaoFatura situacao;
     
     public Long getId() {
         return id;
@@ -51,11 +51,11 @@ public class Fatura {
         this.dataEmissao = dataEmissao;
     }
     
-    public int getSituacao(){
+    public SituacaoFatura getSituacao(){
         return this.situacao;
     }
     
-    public void setSituacao(int situacao){
+    public void setSituacao(SituacaoFatura situacao){
         this.situacao = situacao;
     }
     
