@@ -34,7 +34,7 @@ public class DataAccessConfig {
 
 	@Bean
 	public DataSource dataSource() {
-		DriverManagerDataSource dataSource = new DriverManagerDataSource("jdbc:mysql://localhost:3306/gestorgrego?zeroDateTimeBehavior=convertToNullS", "root", "root");
+		DriverManagerDataSource dataSource = new DriverManagerDataSource("jdbc:mysql://localhost:3306/gestorgrego?zeroDateTimeBehavior=convertToNull", "root", "root");
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		return dataSource;
 	}
