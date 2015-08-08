@@ -7,5 +7,5 @@
 	<application>
 		<message-bundle>JsfMessageResources</message-bundle>
 	</application>
-
+	    
 </faces-config>
