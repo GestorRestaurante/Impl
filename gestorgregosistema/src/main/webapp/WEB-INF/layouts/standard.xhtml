@@ -31,15 +31,86 @@
 		</h4>
 	</div>
 	<div>
-		<h1>Gestor Grego</h1>
 		<h3 class="alt">
 			<ui:insert name="title"/>
 		</h3>
-		<hr/>
 	</div>
 	<div>	
 		<ui:insert name="notes"/>
 	</div>
+    
+        <p:megaMenu style="margin-top:20px">
+            <p:submenu label="Pessoas" icon="ui-icon-document">
+                <p:column>
+                    <p:submenu label="Pessoas">
+                        <p:menuitem value="Consulta" url="#" />
+                        <p:menuitem value="Cadastro" url="#" />
+                    </p:submenu>
+                </p:column>
+            </p:submenu>
+
+            <p:submenu label="Pedidos" icon="ui-icon-document">
+
+                <p:column>
+                    <p:submenu label="Cliente">
+                        <p:menuitem value="Cardápio" url="#" />
+                        <p:menuitem value="Fazer Pedido" url="#" />
+                    </p:submenu>
+                    <p:submenu label="Atendente">
+                        <p:menuitem value="Faturamento" url="#" />
+                        <p:menuitem value="Acompanhamento" url="#" />
+                        <p:menuitem value="Liberação" url="#" />
+                        <p:menuitem value="Entrega" url="#" />
+                    </p:submenu>
+                </p:column>
+            </p:submenu>
+
+            <p:submenu label="Estoque" icon="ui-icon-document">
+                <p:column>
+                    <p:submenu label="Produto">
+                        <p:menuitem value="Montagem" url="#" />
+                        <p:menuitem value="Consulta" url="#" />
+                    </p:submenu>
+                    <p:submenu label="Insumo">
+                        <p:menuitem value="Compra" url="#" />
+                        <p:menuitem value="Controle" url="#" />
+                    </p:submenu>
+                </p:column>
+            </p:submenu>
+
+            <p:submenu label="Caixa" icon="ui-icon-document">
+                <p:column> 
+                    <p:submenu label="Lançamentos">
+                        <p:menuitem value="Entrada" url="#" />
+                        <p:menuitem value="Saída" url="#" />
+                    </p:submenu>
+                    <p:submenu label="Abertura">
+                        <p:menuitem value="Abrir Caixa" url="#" />
+                    </p:submenu>
+                </p:column>
+            </p:submenu>
+            
+            <p:submenu label="Cozinha" icon="ui-icon-document">
+                <p:column>
+                    <p:submenu label="Tela Principal">
+                        <p:menuitem value="Pedidos" url="cozinha" />
+                    </p:submenu>
+                </p:column>
+            </p:submenu>
+            
+            <p:submenu label="Relatórios" icon="ui-icon-document">
+                <p:column>
+                    <p:submenu label="Controle">
+                        <p:menuitem value="Vendas" url="#" />
+                        <p:menuitem value="Insumos" url="#" />
+                        <p:menuitem value="Rendimento" url="#" />
+                    </p:submenu>
+                </p:column>
+            </p:submenu>
+
+            <p:menuitem value="Sair" url="main" icon="ui-icon-close" />
+        </p:megaMenu>
+    
 	<div>
 		<ui:insert name="content"/>
 	</div>
