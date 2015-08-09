@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Pedido {
@@ -16,7 +15,6 @@ public class Pedido {
     @Column
     private String cliente;
     
-    @ManyToOne
     private SituacaoPedido situacao;
 
     public SituacaoPedido getSituacao() {

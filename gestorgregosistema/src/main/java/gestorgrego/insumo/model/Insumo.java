@@ -1,6 +1,7 @@
 package gestorgrego.insumo.model;
 
 import gestorgrego.pessoa.model.Pessoa;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,9 +19,8 @@ public class Insumo {
     private String descricao;
     
     @ManyToMany
-    private Pessoa fornecedor;
+    private List<Pessoa> fornecedor;
     
-    @ManyToMany
     private TipoInsumo tipoinsumo;
     
     @Column
@@ -58,15 +58,12 @@ public class Insumo {
         this.descricao = descricao;
     }
 
-    public Pessoa getFornecedor() {
+    public List<Pessoa> getFornecedor() {
         return fornecedor;
     }
 
-    public void setFornecedor(Pessoa fornecedor) {
+    public void setFornecedor(List<Pessoa> fornecedor) {
         this.fornecedor = fornecedor;
     }
 
-    
-    
-    
 }

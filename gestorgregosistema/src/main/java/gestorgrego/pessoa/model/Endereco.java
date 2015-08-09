@@ -1,6 +1,7 @@
 package gestorgrego.pessoa.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -42,7 +43,7 @@ public class Endereco implements Serializable{
     private String tipoendereco;
     
     @ManyToMany
-    private Pessoa pessoa;
+    private List<Pessoa> pessoa;
 
     public Endereco() {
     }
@@ -113,27 +114,12 @@ public class Endereco implements Serializable{
         this.numero = numero;
     }
 
-    public Pessoa getPessoa() {
+    public List<Pessoa> getPessoa() {
         return pessoa;
     }
 
-    public void setPessoa(Pessoa pessoa) {
+    public void setPessoa(List<Pessoa> pessoa) {
         this.pessoa = pessoa;
     }
 
-    public Endereco(Long id, String logradouro, String numero, String complemento, String bairro, String cidade, String estado, Pessoa pessoa) {
-        this.id = id;
-        this.logradouro = logradouro;
-        this.numero = numero;
-        this.complemento = complemento;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.estado = estado;
-        this.pessoa = pessoa;
-    }
-    
-    
-    
-    
-    
 }

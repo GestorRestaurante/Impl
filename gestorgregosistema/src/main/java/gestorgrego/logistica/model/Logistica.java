@@ -6,6 +6,7 @@
 package gestorgrego.logistica.model;
 
 import gestorgrego.pedido.model.Pedido;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +24,7 @@ public class Logistica {
     private String empresa;
  
     @OneToMany
-    private Pedido pedido; 
+    private List<Pedido> pedido; 
 
     public Long getId() {
         return id;
@@ -41,13 +42,12 @@ public class Logistica {
         this.empresa = empresa;
     }
 
-    public Pedido getPedido() {
+    public void setPedido(List<Pedido> pedido) {
+        this.pedido = pedido;
+    }
+
+    public List<Pedido> getPedido() {
         return pedido;
     }
 
-    public void setPedido(Pedido pedido) {
-        this.pedido = pedido;
-    }
-    
-                
 }

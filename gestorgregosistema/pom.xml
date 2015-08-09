@@ -157,8 +157,8 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.0.1</version>
-			<scope>provided</scope>
-		</dependency>
+                        <scope>provided</scope>
+                </dependency>
 		<!-- JSR 303 with Hibernate Validator -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
