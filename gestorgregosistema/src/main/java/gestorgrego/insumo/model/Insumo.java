@@ -1,15 +1,18 @@
 package gestorgrego.insumo.model;
 
 import gestorgrego.pessoa.model.Pessoa;
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
 @Entity
-public class Insumo {
+public class Insumo implements Serializable {
     
     @Id
     @GeneratedValue
@@ -21,7 +24,9 @@ public class Insumo {
     @ManyToMany
     private List<Pessoa> fornecedor;
     
-    private TipoInsumo tipoinsumo;
+    @Column
+    @Enumerated(EnumType.STRING)
+    private TipoInsumo tipoInsumo;
     
     @Column
     private Float estoque;
@@ -34,12 +39,12 @@ public class Insumo {
         this.estoque = estoque;
     }
 
-    public TipoInsumo getTipoinsumo() {
-        return tipoinsumo;
+    public TipoInsumo getTipoInsumo() {
+        return tipoInsumo;
     }
 
-    public void setTipoinsumo(TipoInsumo tipoinsumo) {
-        this.tipoinsumo = tipoinsumo;
+    public void setTipoInsumo(TipoInsumo tipoInsumo) {
+        this.tipoInsumo = tipoInsumo;
     }
     
     public Long getId() {

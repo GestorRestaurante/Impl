@@ -1,0 +1,31 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="title">Insumo</ui:define>
+
+<ui:define name="content">
+    <h:form id="formEditar">
+        <p:panel header="Editar Insumo">
+            <h:panelGrid columns="2" columnClasses="label, value">
+                <h:outputText value="Tipo Insumo: *" />
+                <p:selectOneMenu  value="#{insumo.tipoInsumo}" required="true">
+                    <f:selectItems value="#{tiposInsumo}" />
+                </p:selectOneMenu>
+
+                <h:outputText value="Nome *" />
+                <p:inputText value="#{insumo.descricao}" required="true"/>
+
+                <h:outputText value="Quantidade: *" />
+                <p:inputText value="#{insumo.estoque}" required="true"/>
+            </h:panelGrid>
+            <p:commandButton value="Cancelar" action="cancelar" immediate="true"/>
+            <p:commandButton value="Salvar" action="salvar"/>
+        </p:panel>
+    </h:form>
+</ui:define>
+</ui:composition>

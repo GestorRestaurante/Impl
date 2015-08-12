@@ -1,0 +1,48 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/layouts/standard.xhtml">
+
+<ui:define name="title">Insumo</ui:define>
+
+<ui:define name="content">
+    <h:form id="form">
+        <p:dataTable var="i" value="#{insumos}" id="insumoTable" paginator="true"
+			rows="#{insumos.pageSize}" lazy="true">
+            <p:column sortBy="#{i.id}">
+                <f:facet name="header">Id</f:facet>
+                #{i.id}
+            </p:column>
+            <p:column sortBy="#{i.tipoInsumo}">
+                <f:facet name="header">Tipo insumo</f:facet>
+                #{i.tipoInsumo}
+            </p:column>
+            <p:column sortBy="#{i.descricao}">
+                <f:facet name="header">Nome</f:facet>
+                #{i.descricao}
+            </p:column>
+            <p:column sortBy="#{i.estoque}">
+                <f:facet name="header">Quantidade</f:facet>
+                #{i.estoque}
+            </p:column>
+            <p:column sortBy="#{i.estoque > 0}">
+                <f:facet name="header">Disponível</f:facet>
+                #{i.estoque > 0}
+            </p:column>
+            <p:column>
+                <f:facet name="header">Ação</f:facet>
+                <p:commandButton id="editar" value="Editar" action="editar" icon="ui-icon-edit">
+                    <f:setPropertyActionListener value="#{i}" target="#{insumos.selected}" />
+                </p:commandButton>
+                <p:commandButton id="excluir" value="Excluir" action="excluir" icon="ui-icon-trash">
+                    <f:setPropertyActionListener value="#{i}" target="#{insumos.selected}" />
+                </p:commandButton>
+            </p:column>
+        </p:dataTable>
+        <p:commandButton value="Cadastrar" action="cadastrar"/>
+    </h:form>
+</ui:define>
+</ui:composition>
