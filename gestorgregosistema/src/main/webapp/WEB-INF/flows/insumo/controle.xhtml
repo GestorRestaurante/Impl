@@ -34,10 +34,10 @@
             </p:column>
             <p:column>
                 <f:facet name="header">Ação</f:facet>
-                <p:commandButton id="editar" value="Editar" action="editar" icon="ui-icon-edit">
+                <p:commandButton id="editar" action="editar" icon="ui-icon-pencil">
                     <f:setPropertyActionListener value="#{i}" target="#{insumos.selected}" />
                 </p:commandButton>
-                <p:commandButton id="excluir" value="Excluir" action="excluir" icon="ui-icon-trash">
+                <p:commandButton id="excluir" action="excluir" icon="ui-icon-trash">
                     <f:setPropertyActionListener value="#{i}" target="#{insumos.selected}" />
                 </p:commandButton>
             </p:column>
