@@ -40,22 +40,21 @@
 	</div>
     
         <p:megaMenu style="margin-top:20px">
-            <p:menuitem value="Inicial" url="main" icon="ui-icon-home" />
+            <p:menuitem value="Inicial" url="/spring/main" icon="ui-icon-home" />
             <p:submenu label="Pessoas" icon="ui-icon-document">
-                <p:column>
+                <p:column>   
                     <p:submenu label="Pessoas">
-                        <p:menuitem value="Consulta" url="#" />
-                        <p:menuitem value="Cadastro" url="pessoa" />
+                        <p:menuitem value="Consulta" url="/spring/pessoa/consulta" />
+                        <p:menuitem value="Cadastro" url="/spring/pessoa/cadastro" />
                     </p:submenu>
                 </p:column>
             </p:submenu>
 
             <p:submenu label="Pedidos" icon="ui-icon-document">
-
                 <p:column>
                     <p:submenu label="Cliente">
-                        <p:menuitem value="Cardápio" url="cardapio" />
-                        <p:menuitem value="Fazer Pedido" url="pedido" />
+                        <p:menuitem value="Cardápio" url="/spring/cardapio" />
+                        <p:menuitem value="Fazer Pedido" url="/spring/pedido" />
                     </p:submenu>
                     <p:submenu label="Atendente">
                         <p:menuitem value="Faturamento" url="#" />

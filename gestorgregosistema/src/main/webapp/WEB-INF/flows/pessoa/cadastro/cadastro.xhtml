@@ -1,0 +1,87 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/layouts/standard.xhtml">
+
+    <ui:define name="title">Pessoas - Cadastro</ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            
+            <p:growl id="growl" sticky="true" showDetail="true"/>
+            
+            <p:wizard flowListener="#{pessoaController.onFlowProcess(event)}">
+                <p:tab id="pessoal" title="Pessoal">
+                    <p:panel header="Personal Details">
+                        <h:panelGrid columns="2" columnClasses="label, value">
+                            <h:outputText value="Nome Completo *" />
+                            <p:inputText value="#{pessoaController.pessoa.nome}" required="true" label="nome"/>
+
+                            <h:outputText value="RG *" />
+                            <p:inputText value="#{pessoaController.pessoa.rg}" required="true" label="rg"/>
+
+                            <h:outputText value="CPF *" />
+                            <p:inputText value="#{pessoaController.pessoa.cpf}" required="true" label="cpf" />
+
+                            <h:outputText value="Data de Nascimento " />
+                            <p:inputText value="#{pessoaController.pessoa.dataNascimento}" label="nascimento" />
+
+                            <h:outputText value="Telefone: *" />
+                            <p:inputText value="#{pessoaController.pessoa.telefone}" required="true" label="Telefone"/>
+                        
+                        </h:panelGrid>
+                        <p:commandButton value="Submit" actionListener="#{pessoaController.save}" update="growl" process="@this"/>
+                    </p:panel> 
+                </p:tab>
+
+
+    <!--            <p:tab id="confirmar" title="Confirmação">
+                    <p:panel header="Confirmation">
+                        <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
+                            <h:panelGrid columns="2" columnClasses="label, value">
+                                <h:outputText value="Firstname: " />
+                                <h:outputText value="#{pessoaController.pessoa.firstname}" styleClass="outputLabel"/>
+
+                                <h:outputText value="Lastname: " />
+                                <h:outputText value="#{pessoaController.pessoa.lastname}" styleClass="outputLabel"/>
+
+                                <h:outputText value="Age: " />
+                                <h:outputText value="#{pessoaController.pessoa.age}" styleClass="outputLabel"/>
+                            </h:panelGrid>
+
+                            <h:panelGrid columns="2" columnClasses="label, value">
+                                <h:outputText value="Street: " />
+                                <h:outputText value="#{pessoaController.pessoa.street}" styleClass="outputLabel"/>
+
+                                <h:outputText value="Postal: " />
+                                <h:outputText value="#{pessoaController.pessoa.postalCode}" styleClass="outputLabel"/>
+
+                                <h:outputText value="City: " />
+                                <h:outputText value="#{pessoaController.pessoa.city}" styleClass="outputLabel"/>
+                            </h:panelGrid>
+
+                            <h:panelGrid columns="2" columnClasses="label, value">
+                                <h:outputText value="Email: " />
+                                <h:outputText value="#{pessoaController.pessoa.email}" styleClass="outputLabel"/>
+
+                                <h:outputText value="Phone " />
+                                <h:outputText value="#{pessoaController.pessoa.phone}" styleClass="outputLabel"/>
+
+                                <h:outputText value="Info: " />
+                                <h:outputText value="#{pessoaController.pessoa.info}" styleClass="outputLabel"/>
+
+                                <h:outputText />
+                                <h:outputText />
+                            </h:panelGrid>
+                        </h:panelGrid>
+
+                        <p:commandButton value="Submit" actionListener="#{userWizard.save}" update="growl" process="@this"/>
+                    </p:panel>
+                </p:tab>-->
+            </p:wizard>
+        </h:form>
+    </ui:define>
+</ui:composition>
