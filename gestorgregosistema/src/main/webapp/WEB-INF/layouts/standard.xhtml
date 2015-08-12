@@ -39,6 +39,7 @@
 		<ui:insert name="notes"/>
 	</div>
     
+    <h:form>
         <p:megaMenu style="margin-top:20px">
             <p:menuitem value="Inicial" url="main" icon="ui-icon-home" />
             <p:submenu label="Pessoas" icon="ui-icon-document">
@@ -73,7 +74,8 @@
                         <p:menuitem value="Consulta" url="#" />
                     </p:submenu>
                     <p:submenu label="Insumo">
-                        <p:menuitem value="Controle" url="/spring/insumo" />
+                        <p:menuitem value="Cadastrar" action="insumoCadastro" />
+                        <p:menuitem value="Controle" action="insumoControle" />
                     </p:submenu>
                 </p:column>
             </p:submenu>
@@ -108,6 +110,7 @@
                 </p:column>
             </p:submenu>
         </p:megaMenu>
+    </h:form>
     
 	<div>
 		<ui:insert name="content"/>

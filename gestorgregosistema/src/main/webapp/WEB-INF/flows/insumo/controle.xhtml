@@ -12,17 +12,13 @@
     <h:form id="form">
         <p:dataTable var="i" value="#{insumos}" id="insumoTable" paginator="true"
 			rows="#{insumos.pageSize}" lazy="true">
-            <p:column sortBy="#{i.id}">
-                <f:facet name="header">Id</f:facet>
-                #{i.id}
+            <p:column sortBy="#{i.descricao}">
+                <f:facet name="header">Nome</f:facet>
+                #{i.descricao}
             </p:column>
             <p:column sortBy="#{i.tipoInsumo}">
                 <f:facet name="header">Tipo insumo</f:facet>
                 #{i.tipoInsumo}
-            </p:column>
-            <p:column sortBy="#{i.descricao}">
-                <f:facet name="header">Nome</f:facet>
-                #{i.descricao}
             </p:column>
             <p:column sortBy="#{i.estoque}">
                 <f:facet name="header">Quantidade</f:facet>
@@ -42,7 +38,6 @@
                 </p:commandButton>
             </p:column>
         </p:dataTable>
-        <p:commandButton value="Cadastrar" action="cadastrar"/>
     </h:form>
 </ui:define>
 </ui:composition>

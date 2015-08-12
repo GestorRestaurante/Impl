@@ -5,9 +5,21 @@
 		http://www.springframework.org/schema/webflow
 		http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 	
-	<view-state id="home">
-	</view-state>
-			
-	<end-state id="finish" />
+	<view-state id="home" />
+        
+	<end-state  id="finish" />
+        
+        <subflow-state id="insumoCadastro" subflow="insumo">
+            <input name="start" value="'cadastro'" />
+        </subflow-state>
+        
+        <subflow-state id="insumoControle" subflow="insumo">
+            <input name="start" value="'controle'" />
+        </subflow-state>
+	
+        <global-transitions>
+            <transition on="insumoCadastro" to="insumoCadastro" />
+            <transition on="insumoControle" to="insumoControle" />
+        </global-transitions>    
 	
 </flow>

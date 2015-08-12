@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<flow xmlns="http://www.springframework.org/schema/webflow"
+<flow parent="main" xmlns="http://www.springframework.org/schema/webflow"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/webflow
@@ -7,9 +7,16 @@
     
     <var name="searchCriteria" class="gestorgrego.insumo.controller.SearchCriteria"/>
     
+    <input name="start" />
+    
     <on-start>
         <evaluate expression="T(gestorgrego.insumo.model.TipoInsumo).values()" result="flowScope.tiposInsumo" />
     </on-start>
+    
+    <decision-state id="start">
+        <if test="start eq 'controle'" then="controle" />
+        <if test="start eq 'cadastro'" then="cadastrar" />
+    </decision-state>
     
     <view-state id="controle">
         <var name="insumos" class="gestorgrego.insumo.controller.InsumoLazyDataModel"/>
@@ -22,9 +29,6 @@
         <transition on="excluir" to="controle">
             <evaluate expression="insumoService.excluirInsumo(insumos.selected)" />
         </transition>
-        <transition on="cadastrar" to="cadastrar" >
-            <evaluate expression="insumoService.criarInsumo()" result="flowScope.insumo" />
-        </transition>
     </view-state>
     
     <view-state id="editar" model="insumo">
@@ -35,6 +39,9 @@
     </view-state>
     
     <view-state id="cadastrar" view="editar.xhtml" model="insumo">
+        <on-entry>
+            <evaluate expression="insumoService.criarInsumo()" result="flowScope.insumo" />
+        </on-entry>
         <transition on="salvar" to="controle">
             <evaluate expression="insumoService.salvarInsumo(flowScope.insumo)" />
         </transition>
