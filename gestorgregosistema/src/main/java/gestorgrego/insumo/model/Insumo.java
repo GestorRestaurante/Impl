@@ -10,6 +10,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Insumo implements Serializable {
@@ -19,16 +21,19 @@ public class Insumo implements Serializable {
     private Long id;
     
     @Column
+    @NotEmpty
     private String descricao;
     
     @ManyToMany
     private List<Pessoa> fornecedor;
     
     @Column
+    @NotNull
     @Enumerated(EnumType.STRING)
     private TipoInsumo tipoInsumo;
     
     @Column
+    @NotNull
     private Float estoque;
 
     public Float getEstoque() {

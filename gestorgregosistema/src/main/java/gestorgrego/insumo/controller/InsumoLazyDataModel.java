@@ -1,5 +1,6 @@
 package gestorgrego.insumo.controller;
 
+import gestorgrego.SearchCriteria;
 import gestorgrego.insumo.model.Insumo;
 import java.util.List;
 import java.util.Map;

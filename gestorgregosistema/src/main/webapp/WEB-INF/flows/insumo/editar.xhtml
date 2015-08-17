@@ -11,20 +11,23 @@
 <ui:define name="content">
     <h:form id="formEditar">
         <p:panel header="Editar Insumo">
-            <h:panelGrid columns="2" columnClasses="label, value">
-                <h:outputText value="Tipo Insumo: *" />
-                <p:selectOneMenu  value="#{insumo.tipoInsumo}" required="true">
+            <h:panelGrid id="grid" columns="3" columnClasses="label, value, message">
+                <p:outputLabel for="tipoInsumo" value="Tipo Insumo:" />
+                <p:selectOneMenu id="tipoInsumo"  value="#{insumo.tipoInsumo}" required="true">
                     <f:selectItems value="#{tiposInsumo}" />
                 </p:selectOneMenu>
+                <p:message for="tipoInsumo" />
 
-                <h:outputText value="Nome *" />
-                <p:inputText value="#{insumo.descricao}" required="true"/>
+                <p:outputLabel for="descricao" value="Nome:" />
+                <p:inputText id="descricao" value="#{insumo.descricao}" required="true"/>
+                <p:message for="descricao" />
 
-                <h:outputText value="Quantidade: *" />
-                <p:inputText value="#{insumo.estoque}" required="true"/>
+                <p:outputLabel for="quantidade" value="Quantidade:" />
+                <p:inputText id="quantidade" value="#{insumo.estoque}" required="true"/>
+                <p:message for="quantidade" />
             </h:panelGrid>
             <p:commandButton value="Cancelar" action="cancelar" immediate="true"/>
-            <p:commandButton value="Salvar" action="salvar"/>
+            <p:commandButton value="Salvar" action="salvar" update="grid"/>
         </p:panel>
     </h:form>
 </ui:define>

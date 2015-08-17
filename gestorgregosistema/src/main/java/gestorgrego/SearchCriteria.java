@@ -1,8 +1,8 @@
-package gestorgrego.insumo.controller;
+package gestorgrego;
 
 import java.io.Serializable;
 
-class SearchCriteria implements Serializable {
+public class SearchCriteria implements Serializable {
     
     private String searchString = "";
 
